@@ -1,7 +1,8 @@
 <?php
 function getConnection(){
-	$link = mysql_connect('localhost', 'adminJPx8Zd2', 'Qag8Sdc86_FH');
-	$db_selected = mysql_select_db('binoios', $link);
+	$env_var = getenv('OPENSHIFT_ENV_VAR');
+	$link = mysql_connect($env_var['OPENSHIFT_MYSQL_DB_HOST'], $env_var['OPENSHIFT_MYSQL_DB_USERNAME'], $env_var['OPENSHIFT_MYSQL_DB_PASSWORD']);
+	$db_selected = mysql_select_db('categnotes', $link);
 	return $link;
 }
 
