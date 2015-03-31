@@ -1,7 +1,7 @@
 <?php
 function getConnection(){
-	$env_var = getenv('OPENSHIFT_ENV_VAR');
-	$link = mysql_connect($env_var['OPENSHIFT_MYSQL_DB_HOST'], $env_var['OPENSHIFT_MYSQL_DB_USERNAME'], $env_var['OPENSHIFT_MYSQL_DB_PASSWORD']);
+	// $env_var = getenv('OPENSHIFT_ENV_VAR');
+	$link = mysql_connect(getenv('OPENSHIFT_MYSQL_DB_HOST'), getenv('OPENSHIFT_MYSQL_DB_USERNAME'), getenv('OPENSHIFT_MYSQL_DB_PASSWORD'));
 	$db_selected = mysql_select_db('categnotes', $link);
 	return $link;
 }
