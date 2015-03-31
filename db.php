@@ -1,9 +1,15 @@
 <?php
 function getConnection(){
-	$link = mysql_connect('localhost', 'root', '');
-	$db_selected = mysql_select_db('categnotes', $link);
+	$link = mysql_connect('localhost', 'adminJPx8Zd2', 'Qag8Sdc86_FH');
+	$db_selected = mysql_select_db('binoios', $link);
 	return $link;
 }
+
+// function getConnection(){
+	// $link = mysql_connect('localhost', 'root', '');
+	// $db_selected = mysql_select_db('categnotes', $link);
+	// return $link;
+// }
 
 
 function getCategory($id){
