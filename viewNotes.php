@@ -27,14 +27,22 @@
 					$id=$_POST['note'];
 				}
 			}
-		}else if(isset($_POST) and isset($_POST['note'])){
-			$id=$_POST['note'];
 		}
+		// else if(isset($_POST) and isset($_POST['note'])){
+			// $id=$_POST['note'];
+		// }
 		
 	?>
 	<body>
 		<div class="container-fluid">
 			<a href="index.php"><h1>CategNotes</h1></a>
+			<?php 
+			if($id!=""){?>
+			<form id="DelNoteForm" method="post" action="viewCategory.php">
+				<button type="submit" name="DelNote" id="DelNote" value="<?php echo $id;?>" class="btn btn-danger" >Delete Note</button>
+				<input type="hidden" name="category_id" id="category_id" value="<?php echo $category_id; ?>"/>
+			</form>
+			<?php } ?>
 			<form id="add_note" method="post" action="viewCategory.php">
 				<div class="form-group">
 				  <label for="name">Title</label>

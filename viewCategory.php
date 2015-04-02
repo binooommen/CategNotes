@@ -11,6 +11,10 @@
 	</head>
 	<?php
 		include 'db.php';
+		if(isset($_POST) and isset($_POST['DelNote'])){
+			$id=$_POST['DelNote'];
+			deleteNote($id);
+		}
 		$categ="";
 		if(isset($_POST)){
 			if(isset($_POST['save'])){
@@ -27,11 +31,17 @@
 				}
 			}
 		}
+		$category_id=$_POST['category_id'];
+		
 	?>
 	<body>
 		<div class="container-fluid">
 			<a href="index.php"><h1>CategNotes</h1></a>
-			<h2>Notes in <?php echo $categ; ?></h2>
+			<form id="DelForm" method="post" action="index.php">
+				<h2>Notes in <?php echo $categ; ?> 
+					<button type="submit" name="DelCategory" id="DelCategory" value="<?php echo $category_id;?>" class="btn btn-danger" >Delete Category</button>
+				</h2>
+			</form>
 			<form id="notes_list" method="post" action="viewNotes.php">
 				<?php
 				$result=getAllNote($_POST['category_id']);

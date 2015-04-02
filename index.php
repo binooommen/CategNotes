@@ -16,6 +16,11 @@
 			setCategory($name);
 			header('location:index.php');
 		}
+		if(isset($_POST) and isset($_POST['DelCategory'])){
+			$id=$_POST['DelCategory'];
+			deleteCategory($id);
+			header('location:index.php');
+		}
 	?>
 	<body>
 		<div class="container-fluid">

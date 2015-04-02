@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `note` (
 -- Constraints for table `note`
 --
 ALTER TABLE `note`
-  ADD CONSTRAINT `note_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`);
+  ADD CONSTRAINT `note_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`) ON DELETE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -1,6 +1,5 @@
 <?php
 function getConnection(){
-	// $env_var = getenv('OPENSHIFT_ENV_VAR');
 	$link = mysql_connect(getenv('OPENSHIFT_MYSQL_DB_HOST'), getenv('OPENSHIFT_MYSQL_DB_USERNAME'), getenv('OPENSHIFT_MYSQL_DB_PASSWORD'));
 	$db_selected = mysql_select_db('categnotes', $link);
 	return $link;
@@ -64,5 +63,20 @@ function updateNote($id, $title, $detail, $category_id){
 	$result=mysql_query($sql, $link);
 	return $result;
 }
+
+function deleteNote($id){
+	$link=getConnection();
+	$sql = "DELETE FROM note WHERE id=$id ;";
+	$result=mysql_query($sql, $link);
+	return $result;
+}
+
+function deleteCategory($id){
+	$link=getConnection();
+	$sql = "DELETE FROM category WHERE id=$id ;";
+	$result=mysql_query($sql, $link);
+	return $result;
+}
+
 
 ?>
